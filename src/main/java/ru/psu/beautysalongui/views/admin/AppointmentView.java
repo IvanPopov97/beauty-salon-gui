@@ -1,17 +1,16 @@
-package ru.psu.beautysalongui.views;
+package ru.psu.beautysalongui.views.admin;
 
-import static com.vaadin.flow.theme.material.Material.DARK;
-
-import com.vaadin.flow.component.UI;
+import com.vaadin.flow.component.Component;
 import com.vaadin.flow.component.orderedlayout.VerticalLayout;
 import com.vaadin.flow.data.renderer.LocalDateTimeRenderer;
-import com.vaadin.flow.router.Route;
 import org.vaadin.crudui.crud.impl.GridCrud;
 import ru.psu.beautysalongui.entities.AppointmentOverview;
 import ru.psu.beautysalongui.services.AppointmentOverviewService;
+import ru.psu.beautysalongui.views.GridCrudFactory;
+import ru.psu.beautysalongui.views.View;
 
-@Route("/appointment")
-public class AppointmentView extends VerticalLayout {
+@View
+public class AppointmentView extends VerticalLayout implements AdminTabView {
 
   private static final String TIME_COLUMN = "time";
   private static final String TIME_FORMAT = "dd.MM.yyyy HH:mm";
@@ -23,7 +22,6 @@ public class AppointmentView extends VerticalLayout {
 
   public AppointmentView(
       AppointmentOverviewService overviewService, GridCrudFactory gridCrudFactory) {
-    setDarkTheme();
     final GridCrud<AppointmentOverview> gridCrud =
         gridCrudFactory.create(
             AppointmentOverview.class, overviewService, ORDERED_FIELDS, NOT_EDITABLE_FIELDS);
@@ -35,7 +33,13 @@ public class AppointmentView extends VerticalLayout {
     setSizeFull();
   }
 
-  private void setDarkTheme() {
-    UI.getCurrent().getElement().getThemeList().add(DARK);
+  @Override
+  public int adminTabIndex() {
+    return 2;
+  }
+
+  @Override
+  public Component ref() {
+    return this;
   }
 }

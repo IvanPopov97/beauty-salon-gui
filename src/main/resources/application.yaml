@@ -5,3 +5,5 @@ spring:
     name: beauty-salon-gui
   liquibase:
     change-log: postgres/changelog.yaml
+  jpa:
+    show-sql: true
