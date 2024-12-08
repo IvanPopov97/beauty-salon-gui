@@ -1,0 +1,7 @@
+vaadin:
+  launch-browser: true
+spring:
+  application:
+    name: beauty-salon-gui
+  liquibase:
+    change-log: postgres/changelog.yaml
