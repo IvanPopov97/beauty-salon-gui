@@ -34,5 +34,4 @@ public class AppointmentService implements CrudListener<Appointment> {
          appointmentRepo.delete(appointment);
     }
 
-
 }

@@ -8,6 +8,8 @@ import jakarta.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
 @Entity
@@ -31,16 +33,18 @@ public class AppointmentOverview {
   @Column(name = "appointment_id")
   private Integer id;
 
-  private String customerName;
+  @NotBlank private String customerName;
   private BigDecimal customerSpends;
 
-  private String employeeName;
+  @NotBlank private String employeeName;
 
-  private String serviceName;
+  @NotBlank private String serviceName;
 
+  @NotNull
   @Column(name = "appointment_date_time")
   private LocalDateTime time;
 
+  @NotNull
   @Enumerated(value = STRING)
   private Status status;
 

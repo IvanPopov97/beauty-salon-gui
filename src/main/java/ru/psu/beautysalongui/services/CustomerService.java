@@ -35,5 +35,4 @@ public class CustomerService implements CrudListener<Customer> {
          customerRepo.delete(customer);
     }
 
-
 }

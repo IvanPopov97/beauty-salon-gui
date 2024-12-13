@@ -14,7 +14,6 @@ public class AppointmentOverviewService implements CrudListener<AppointmentOverv
 
     private final AppointmentOverviewRepo overviewRepo;
 
-
     @Override
     public Collection<AppointmentOverview> findAll() {
         return overviewRepo.findAll();
@@ -35,4 +34,5 @@ public class AppointmentOverviewService implements CrudListener<AppointmentOverv
     public void delete(AppointmentOverview appointmentOverview) {
         overviewRepo.delete(appointmentOverview);
     }
+
 }

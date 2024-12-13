@@ -3,32 +3,38 @@ package ru.psu.beautysalongui.entities;
 import static jakarta.persistence.GenerationType.SEQUENCE;
 
 import jakarta.persistence.*;
+import java.math.BigDecimal;
+
 import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
-import java.math.BigDecimal;
-
 @Entity
-@Table(name = "services")
+@Table(name = "inventory")
 @NoArgsConstructor
 @AllArgsConstructor
 @Getter
 @Setter
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-public class Service {
+public class Product {
 
-  private static final String GENERATOR = "service_generator";
+  private static final String GENERATOR = "product_generator";
 
   @Id
   @GeneratedValue(strategy = SEQUENCE, generator = GENERATOR)
-  @SequenceGenerator(name = GENERATOR, sequenceName = "services_service_id_seq", allocationSize = 1)
-  @Column(name = "service_id")
+  @SequenceGenerator(
+      name = GENERATOR,
+      sequenceName = "inventory_product_id_seq",
+      allocationSize = 1)
+  @Column(name = "product_id")
   @EqualsAndHashCode.Include
   private Integer id;
 
   @NotBlank private String name;
+
+  @Min(0)
+  private int quantity;
 
   @NotNull
   @Min(1)

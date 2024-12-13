@@ -77,6 +77,7 @@ public class GridCrudFactory {
     crudFormFactory.setVisibleProperties(CrudOperation.DELETE, orderedFields);
     crudFormFactory.setFieldType(TIME_FIELD, DateTimePicker.class);
     crudFormFactory.setFieldType(EMAIL_FIELD, EmailField.class);
+    crudFormFactory.setUseBeanValidation(true);
     return crudFormFactory;
   }
 

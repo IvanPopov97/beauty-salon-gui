@@ -3,6 +3,7 @@ package ru.psu.beautysalongui.entities;
 import static jakarta.persistence.GenerationType.SEQUENCE;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
 
 @Entity
@@ -26,8 +27,8 @@ public class Employee {
   @EqualsAndHashCode.Include
   private Integer id;
 
-  private String name;
-  private String position;
+  @NotBlank private String name;
+  @NotBlank private String position;
 
   @Override
   public String toString() {

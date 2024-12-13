@@ -7,3 +7,6 @@ spring:
     change-log: postgres/changelog.yaml
   jpa:
     show-sql: true
+  threads:
+    virtual:
+      enabled: true
